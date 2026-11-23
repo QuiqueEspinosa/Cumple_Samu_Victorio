@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es-AR" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>¡Cumple de Samu! · Invitación</title>
+  <meta name="description" content="¡Estás invitado al cumple de Samu! Domingo 20/12 de 12:30 a 20:00 hs en El Refugio de Raquel, Pocito." />
+  <meta name="theme-color" content="#F28C28" />
+
+  <!-- Vista previa al compartir por WhatsApp / redes.
+       IMPORTANTE: cuando tengas la URL de Vercel, reemplazá "https://TU-PROYECTO.vercel.app"
+       por la URL real (WhatsApp necesita la URL absoluta de la imagen). -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="¡Estás invitado al cumple de Samu! 🦴" />
+  <meta property="og:description" content="Domingo 20/12 · 12:30 a 20:00 hs · El Refugio de Raquel, Pocito" />
+  <meta property="og:image" content="https://TU-PROYECTO.vercel.app/assets/img/samu.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦴</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Luckiest+Guy&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="inicio">
+    <div class="hero__sky" aria-hidden="true">
+      <span class="cloud cloud--1"></span>
+      <span class="cloud cloud--2"></span>
+      <span class="cloud cloud--3"></span>
+      <!-- Pterodáctilos (se dibujan desde js/animaciones.js) -->
+      <span class="ptero-flyer ptero-flyer--1"><span class="ptero-flyer__bob" data-ptero></span></span>
+      <span class="ptero-flyer ptero-flyer--2"><span class="ptero-flyer__bob" data-ptero></span></span>
+    </div>
+
+    <!-- Paisaje: montañas + volcán humeante -->
+    <svg class="hero__landscape" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <path fill="#A9C4D6" d="M0 300 L120 210 L230 260 L360 170 L470 240 L560 200 L700 280 L820 190 L960 260 L1100 180 L1240 250 L1440 190 L1440 420 L0 420Z"/>
+      <g class="volcano">
+        <path fill="#B8634A" d="M520 330 L680 150 L720 150 L880 330Z"/>
+        <path fill="#9A4E39" d="M700 150 L720 150 L880 330 L760 330Z"/>
+        <path fill="#E2492F" d="M680 150 L720 150 L712 175 L700 165 L690 182Z"/>
+      </g>
+      <g class="lava-sparks">
+        <circle cx="700" cy="152" r="7" style="--dx:-46px; --dy:-90px; animation-delay:0s"/>
+        <circle cx="700" cy="152" r="5" style="--dx:30px;  --dy:-110px; animation-delay:.5s"/>
+        <circle cx="700" cy="152" r="6" style="--dx:-14px; --dy:-130px; animation-delay:1.1s"/>
+        <circle cx="700" cy="152" r="4" style="--dx:52px;  --dy:-80px; animation-delay:1.6s"/>
+        <circle cx="700" cy="152" r="5" style="--dx:-60px; --dy:-70px; animation-delay:2.1s"/>
+      </g>
+      <g class="smoke">
+        <circle cx="700" cy="120" r="18"/>
+        <circle cx="716" cy="92" r="24"/>
+        <circle cx="694" cy="58" r="30"/>
+      </g>
+      <path fill="#7BA65B" d="M0 330 Q180 290 360 320 T720 315 T1080 322 T1440 310 L1440 420 L0 420Z"/>
+      <path fill="#F1D7A6" d="M0 365 Q240 340 480 360 T960 355 T1440 350 L1440 420 L0 420Z"/>
+    </svg>
+
+    <div class="hero__content container">
+      <div class="hero__text reveal">
+        <div class="sign sign--hanging">
+          <span>¡Estás invitado!</span>
+        </div>
+
+        <p class="hero__kicker">al cumple de</p>
+        <h1 class="stone-title" aria-label="Samu">
+          <span aria-hidden="true">S</span><span aria-hidden="true">a</span><span aria-hidden="true">m</span><span aria-hidden="true">u</span>
+        </h1>
+        <p class="hero__subtitle">¡Te espero en <strong>Piedradura</strong> para festejar a lo cavernícola!</p>
+
+        <a href="#cuando" class="btn btn--orange hero__cta">
+          <span aria-hidden="true">🦴</span> Ver detalles
+        </a>
+      </div>
+
+      <figure class="hero__photo reveal">
+        <div class="photo-frame">
+          <img src="assets/img/samu.jpg" alt="Samu manejando su auto de piedra en Piedradura" width="768" height="1362" />
+        </div>
+        <span class="photo-frame__bone" aria-hidden="true"></span>
+      </figure>
+    </div>
+
+    <!-- Dinosaurio que camina por el pasto (tocalo) -->
+    <button class="dino-walker" id="dino-walker" type="button" aria-label="Tocá al dinosaurio" hidden>
+      <span class="dino-walker__flip">
+        <span class="dino-walker__jump" data-dino></span>
+      </span>
+      <span class="dino-bubble" aria-live="polite"></span>
+    </button>
+
+    <a href="#contador" class="scroll-hint" aria-label="Bajar al contador">
+      <span class="footprint"></span>
+      <span class="footprint"></span>
+    </a>
+  </header>
+
+  <main>
+
+    <!-- ===================== CONTADOR ===================== -->
+    <section class="countdown-section pattern-fred" id="contador" aria-labelledby="contador-titulo">
+      <div class="container">
+        <h2 class="plank-title reveal" id="contador-titulo">Faltan…</h2>
+
+        <div class="countdown reveal" id="countdown" role="timer" aria-live="off">
+          <div class="countdown__item stone">
+            <span class="countdown__num" data-unit="days">--</span>
+            <span class="countdown__label">Días</span>
+          </div>
+          <div class="countdown__item stone">
+            <span class="countdown__num" data-unit="hours">--</span>
+            <span class="countdown__label">Horas</span>
+          </div>
+          <div class="countdown__item stone">
+            <span class="countdown__num" data-unit="minutes">--</span>
+            <span class="countdown__label">Min</span>
+          </div>
+          <div class="countdown__item stone">
+            <span class="countdown__num" data-unit="seconds">--</span>
+            <span class="countdown__label">Seg</span>
+          </div>
+        </div>
+
+        <p class="countdown__message" id="countdown-message" hidden></p>
+      </div>
+    </section>
+
+    <!-- ===================== GALERÍA ===================== -->
+    <section class="section section--cream" id="galeria" aria-labelledby="galeria-titulo">
+      <div class="container">
+        <h2 class="section-title reveal" id="galeria-titulo">¡Conocé al cumpleañero!</h2>
+        <div class="bone-divider" aria-hidden="true"></div>
+
+        <div class="gallery">
+          <figure class="gallery__item reveal">
+            <button class="gallery__btn" type="button" data-full="assets/img/samu-saludo.jpg" aria-label="Ver foto en grande: Samu saludando">
+              <span class="photo-frame photo-frame--small">
+                <img src="assets/img/samu-saludo.jpg" alt="Samu sonriendo y saludando con la mano frente a un inflable naranja" width="575" height="1280" loading="lazy" />
+              </span>
+            </button>
+            <figcaption class="sign gallery__caption">¡Hola!</figcaption>
+          </figure>
+
+          <figure class="gallery__item reveal">
+            <button class="gallery__btn" type="button" data-full="assets/img/samu-juegos.jpg" aria-label="Ver foto en grande: Samu en los juegos">
+              <span class="photo-frame photo-frame--small">
+                <img src="assets/img/samu-juegos.jpg" alt="Samu riéndose, parado en los juegos de una plaza" width="719" height="1600" loading="lazy" />
+              </span>
+            </button>
+            <figcaption class="sign gallery__caption">¡Listo pa' la fiesta!</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Visor de fotos -->
+      <dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+        <img src="" alt="" />
+        <button class="lightbox__close btn btn--orange" type="button" aria-label="Cerrar foto">✕</button>
+      </dialog>
+    </section>
+
+    <!-- ===================== CUÁNDO ===================== -->
+    <section class="section section--sand" id="cuando" aria-labelledby="cuando-titulo">
+      <div class="container">
+        <h2 class="section-title reveal" id="cuando-titulo">¿Cuándo?</h2>
+        <div class="bone-divider" aria-hidden="true"></div>
+
+        <div class="cards">
+          <article class="card stone reveal">
+            <div class="card__icon" aria-hidden="true">📅</div>
+            <h3 class="card__title">Día</h3>
+            <p class="card__big">Domingo 20</p>
+            <p class="card__text">de diciembre de 2026</p>
+          </article>
+
+          <article class="card stone reveal">
+            <div class="card__icon" aria-hidden="true">⏰</div>
+            <h3 class="card__title">Horario</h3>
+            <p class="card__big">12:30 a 20:00</p>
+            <p class="card__text">¡Vení con hambre de brontoburger!</p>
+          </article>
+        </div>
+
+        <div class="btn-row reveal">
+          <a class="btn btn--blue" id="btn-google-cal" href="#" target="_blank" rel="noopener">
+            <span aria-hidden="true">🗓️</span> Agendar en Google
+          </a>
+          <button class="btn btn--wood" id="btn-ics" type="button">
+            <span aria-hidden="true">📲</span> Agendar (iPhone / otro)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DÓNDE ===================== -->
+    <section class="section section--cream" id="donde" aria-labelledby="donde-titulo">
+      <div class="container">
+        <h2 class="section-title reveal" id="donde-titulo">¿Dónde?</h2>
+        <div class="bone-divider" aria-hidden="true"></div>
+
+        <div class="place reveal">
+          <div class="sign sign--place">
+            <span>El Refugio de Raquel</span>
+          </div>
+          <p class="place__address">
+            Calle Alfonso XIII, entre 7 y 8<br />
+            Pocito, San Juan
+          </p>
+        </div>
+
+        <div class="map-frame stone reveal">
+          <iframe
+            title="Mapa: El Refugio de Raquel, Pocito"
+            src="https://maps.google.com/maps?q=-31.636850,-68.504082&z=16&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="trail reveal" aria-hidden="true">
+          <p class="trail__text">Seguí las huellas…</p>
+          <div class="trail__steps">
+            <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span>
+            <span style="--i:3"></span><span style="--i:4"></span><span style="--i:5"></span>
+          </div>
+        </div>
+
+        <div class="btn-row btn-row--tight reveal">
+          <a class="btn btn--orange btn--lg" id="btn-directions"
+             href="https://www.google.com/maps/dir/?api=1&destination=-31.636850,-68.504082"
+             target="_blank" rel="noopener">
+            <span aria-hidden="true">🚗</span> ¿Cómo llego?
+          </a>
+          <a class="btn btn--wood" href="https://maps.app.goo.gl/gPdAPjoXLRQiAVHp7" target="_blank" rel="noopener">
+            <span aria-hidden="true">📍</span> Abrir en Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONFIRMAR ===================== -->
+    <section class="section section--sand" id="confirmar" aria-labelledby="confirmar-titulo">
+      <div class="container">
+        <h2 class="section-title reveal" id="confirmar-titulo">¡Confirmá tu asistencia!</h2>
+        <div class="bone-divider" aria-hidden="true"></div>
+        <p class="section-lead reveal">Avisanos si venís así preparamos costillas de dino para todos 🍖</p>
+
+        <div class="cards">
+          <article class="card card--contact stone reveal">
+            <div class="card__icon" aria-hidden="true">👨</div>
+            <h3 class="card__title">Papá</h3>
+            <p class="card__text card__phone">264 4 176 661</p>
+            <div class="card__actions">
+              <a class="btn btn--whatsapp" data-wa="5492644176661" href="https://wa.me/5492644176661" target="_blank" rel="noopener">
+                WhatsApp
+              </a>
+              <a class="btn btn--ghost" href="tel:+5492644176661">Llamar</a>
+            </div>
+          </article>
+
+          <article class="card card--contact stone reveal">
+            <div class="card__icon" aria-hidden="true">👩</div>
+            <h3 class="card__title">Mamá</h3>
+            <p class="card__text card__phone">264 4 600 953</p>
+            <div class="card__actions">
+              <a class="btn btn--whatsapp" data-wa="5492644600953" href="https://wa.me/5492644600953" target="_blank" rel="noopener">
+                WhatsApp
+              </a>
+              <a class="btn btn--ghost" href="tel:+5492644600953">Llamar</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         ESPACIO PARA GIFs / IMÁGENES
+         Poné los archivos en assets/gifs/ y descomentá, por ejemplo:
+         <img class="deco deco--left"  src="assets/gifs/dino.gif"  alt="" aria-hidden="true">
+         <img class="deco deco--right" src="assets/gifs/fiesta.gif" alt="" aria-hidden="true">
+         ===================================================== -->
+
+  </main>
+
+  <footer class="footer pattern-fred">
+    <div class="footer-dino" data-dino aria-hidden="true"></div>
+    <p class="footer__shout">¡Yabba Dabba Doo!</p>
+    <p class="footer__small">¡Te esperamos! · Samu 🦴</p>
+  </footer>
+
+  <!-- ===================== CRÉDITOS / PROMO ===================== -->
+  <aside class="credits" aria-label="Autor de la invitación">
+    <p class="credits__by">Invitación digital elaborada por <strong>Tec. Enrique Espinosa</strong></p>
+    <p class="credits__pitch">¿Querés tu invitación digital? Contame la temática y la hacemos 🎉</p>
+    <a class="btn btn--whatsapp credits__btn"
+       href="https://wa.me/5492645278373?text=%C2%A1Hola%20Enrique!%20Vi%20la%20invitaci%C3%B3n%20de%20Samu%20y%20quiero%20mi%20invitaci%C3%B3n%20digital.%20La%20tem%C3%A1tica%20es%3A%20"
+       target="_blank" rel="noopener">
+      <span aria-hidden="true">💬</span> 264 5 278 373
+    </a>
+  </aside>
+
+  <script src="js/animaciones.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
